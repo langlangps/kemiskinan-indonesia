@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get(
     default='django-insecure-gdldcf@0wt3z3v!6ai@uz#q+w_wx1oirphx7)2*yhm!++7z=!l'
 )
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG','True') == 'True'
+DEBUG = os.environ.get('DEBUG','False') == 'True'
 
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '127.0.0.1,localhost').split(',')
 
@@ -130,8 +130,8 @@ USE_L10N = True
 
 USE_TZ = True
 
-# ! Perhatikan lagi untuk bootsrap nya
-CRISPY_TEMPLATE = 'bootstrap 4'
+# # ! Perhatikan lagi untuk bootsrap nya
+# CRISPY_TEMPLATE = 'bootstrap 4'
 
 ASGI_APPLICATION = 'kemiskinan_indonesia.routing.application'
 
