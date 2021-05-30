@@ -1,5 +1,4 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -16,7 +15,8 @@
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'kemiskinan-indonesia/css/styles.css' %}" rel="stylesheet" />
-        <link rel="icon" href="{% static 'kemiskinan-indonesia/assets/favicon.ico' %}">
+        <link href="{% static 'kemiskinan-indonesia/css/style-barchart.css' %}" rel="stylesheet">
+        <link rel="icon" href="{% static 'kemiskinan-indonesia/assets//favicon.ico' %}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
         integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -29,19 +29,16 @@
         <script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js'></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com./ajax/libs/font-awesome/4.0.3/css/font-awe    some.css">
         <script src='https://cdnjs.cloudflare.com./ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-        <link rel="stylesheet" href="{% static 'kemiskinan-indonesia/css/style-barchart.css'%}">
-        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     </head>
     <body id="page-top">
         <!-- Navigation-->
         <a class="menu-toggle rounded" href="#"><i class="fas fa-bars"></i></a>
-        <nav id="sidebar-wrapper">
+        <nav id="sidebar-wrapper" class="bg-abu">
             <ul class="sidebar-nav">
                 <li class="sidebar-nav-item"><a class="js-scroll-trigger" href="#page-top">Beranda</a></li>
                 <li class="sidebar-nav-item"><a class="js-scroll-trigger" href="#tentang">Tentang</a></li>
-                <li class="sidebar-nav-item"><a class="js-scroll-trigger" href="#variabel">Variabel</a></li>
                 <li class="sidebar-nav-item"><a class="js-scroll-trigger" href="#visualisasi">Visualisasi</a></li>
-                <li class="sidebar-nav-item"><a class="js-scroll-trigger" href="#kontak">Kontak</a></li>
+                <li class="sidebar-nav-item"><a class="js-scroll-trigger" href="#saran">Saran</a></li>
             </ul>
         </nav>
         <!-- Header-->
@@ -49,72 +46,83 @@
             <div class="container text-center my-auto">
                 <h1 class="mb-1 bg-light transparant">Kemiskinan di Indonesia</h1>
                 <h3 class="mb-5 bg-light"><em>Dampak Pandemi covid-19</em></h3>
-                <a class="btn btn-primary btn-xl js-scroll-trigger" href="#tentang">Selengkapnya...</a>
+                <a class="btn btn-dark btn-xl js-scroll-trigger" href="#tentang">Selengkapnya...</a>
             </div>
             <div class="overlay"></div>
         </header>
         <!-- tentang-->
-        <section class="content-section bg-light" id="tentang">
-            <div class="container text-center">
-                <div class="row">
-                    <div class="col-lg-10 mx-auto">
-                        <h2>Kemiskinan di Indonesia ..............</h2>
-                        <p class="lead mb-5">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </p>
-                        <a class="btn btn-dark btn-xl js-scroll-trigger" href="#variabel">Apa saja variabel kemiskinan?</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- variabel-->
-        <section class="content-section bg-primary text-white text-center" id="variabel">
-        	
+        <section class="content-section bg-kuning text-dark text-center" id="tentang">
             <div class="container">
-                <div class="content-section-heading">
-                    <h2 class="mb-5">Variabel</h2>
+                <div class="content-section-heading text-center">
+                    <h2 class="mb-5 about">Tentang</h2>
                 </div>
-                <div class="row center">
-                    <div class="col-lg-2 col-md-6 mb-5 mb-lg-0">
-                        <span class="service-icon rounded-circle mx-auto mb-3"><i class="icon-people"></i></span>
-                        <h5><strong>Jumlah Penduduk Miskin</strong></h5>
-                        <p class="text-faded mb-0">Blablabla....</p>
+                <!-- Jssor Slider Begin -->
+                <div id="slider1_container" style="visibility: hidden; position: relative; margin: 0 auto; width: 1900px; height: 1000px; overflow: hidden;">
+
+                    <!-- Slides Container -->
+                    <div data-u="slides" style="position: absolute; width: 1900px; height: 1000px;
+                    overflow: hidden;">
+                        <div>
+                            <img data-u="image" src="{% static 'kemiskinan-indonesia/assets/img/Artboard 2.png' %}" />
+                        </div>
+                        <div>
+                            <img data-u="image" src="{% static 'kemiskinan-indonesia/assets/img/Artboard 3.png' %}" />
+                        </div>
+                        <div>
+                            <img data-u="image" src="{% static 'kemiskinan-indonesia/assets/img/Artboard 4.png' %}" />
+                        </div>
+                        <div>
+                            <img data-u="image" src="{% static 'kemiskinan-indonesia/assets/img/Artboard 5.png' %}" />
+                        </div>
+                        <div>
+                            <img data-u="image" src="{% static 'kemiskinan-indonesia/assets/img/Artboard 6.png' %}" />
+                        </div>
                     </div>
-                    <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
-                        <span class="service-icon rounded-circle mx-auto mb-3"><i class="icon-pie-chart"></i></span>
-                        <h5><strong>Persentase Penduduk Miskin</strong></h5>
-                        <p class="text-faded mb-0">Blablabla....</p>
+                    <!--#region Bullet Navigator Skin Begin -->
+                    <!-- Help: https://www.jssor.com/development/slider-with-bullet-navigator.html -->
+                    <div data-u="navigator" class="jssorb031" style="position:absolute;bottom:12px;right:12px;" data-autocenter="1" data-scale="0.5" data-scale-bottom="0.75">
+                        <div data-u="prototype" class="i" style="width:16px;height:16px;">
+                            <svg viewBox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+                                <circle class="b" cx="8000" cy="8000" r="5800"></circle>
+                            </svg>
+                        </div>
                     </div>
-                    <div class="col-lg-2 col-md-6 mb-5 mb-lg-0">
-                        <span class="service-icon rounded-circle mx-auto mb-3"><i class="icon-pencil"></i></span>
-                        <h5><strong>Garis Kemiskinan</strong></h5>
-                        <p class="text-faded mb-0">Blablabla....</p>
+                    <!--#endregion Bullet Navigator Skin End -->
+                    <!--#region Arrow Navigator Skin Begin -->
+                    <!-- Help: https://www.jssor.com/development/slider-with-arrow-navigator.html -->
+                    <div data-u="arrowleft" class="jssora051" style="width:55px;height:55px;top:0px;left:25px;" data-autocenter="2" data-scale="0.75" data-scale-left="0.75">
+                        <svg viewBox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+                            <polyline class="a" points="11040,1920 4960,8000 11040,14080 "></polyline>
+                        </svg>
                     </div>
-                    <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
-                        <span class="service-icon rounded-circle mx-auto mb-3"><i class="icon-graph"></i></span>
-                        <h5><strong>Indeks Kedalaman Kemiskinan</strong></h5>
-                        <p class="text-faded mb-0">
-                            Blablabla....
-                        </p>
+                    <div data-u="arrowright" class="jssora051" style="width:55px;height:55px;top:0px;right:25px;" data-autocenter="2" data-scale="0.75" data-scale-right="0.75">
+                        <svg viewBox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+                            <polyline class="a" points="4960,1920 11040,8000 4960,14080 "></polyline>
+                        </svg>
                     </div>
-                    <div class="col-lg-2 col-md-6">
-                        <span class="service-icon rounded-circle mx-auto mb-3"><i class="icon-dislike"></i></span>
-                        <h5><strong>Indeks Keparahan Kemiskinan</strong></h5>
-                        <p class="text-faded mb-0">Blablabla....</p>
-                    </div>
+                    <!--#endregion Arrow Navigator Skin End -->
+                </div>
+                <!-- Jssor Slider End -->
+                <br>
+                <div class="text-center my-auto">
+                    <a class="btn btn-dark btn-xl js-scroll-trigger" href="#visualisasi">Bagaimana Hasil Visualisasinya?</a>
                 </div>
             </div>
         </section>
         <!-- visualisasi-->
-        {% comment %} {% load plotly_dash %}
+        <section class="content-section bg-abu" id="visualisasi">
+            <div class="container text-white">
+                <div class="content-section-heading text-center">
+                    <h2 class="mb-5 visualization">Visualisasi</h2>
+                </div>
+                <div style="height:800px;">
+                	{% load plotly_dash %}
 
-        {% plotly_app name="LineChart" ratio=1%} {% endcomment %}
-                    <div class="row">
+                    {% plotly_app name="LineChart" ratio=1 %}
+                </div>
+            </div>
+        </section>
+                <div class="row bg-abu">
                 <div class="col-8 col-md-4">
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
@@ -130,7 +138,7 @@
                     </div> 
                 </div>
             </div>   
-                    <div class="padding">
+                    <div class="padding bg-abu">
                         <div class="row">
                             <div class="container-fluid d-flex justify-content-center">
                                 <div class="col-sm-8 col-md-6">
@@ -196,32 +204,48 @@
                                     </div>
                                 </div>
                             </div>
+                            <p id="demo" class="demo">
+                                Untuk melihat kondisi masing-masing provinsi di tahun 2020 dapat dilihat pada peta di bawah ini.
+                            </p>
                         </div>
                     </div>
-        <div id="map" class="container col-lg-10"></div>
-        <!-- Kontak-->
-        <section class="content-section bg-primary">
-	        <div id="kontak" class="text-center text-white h3">
-	        Hubungi kami: <br>
-	        <br>
-	        <a class="social-link bg-light rounded-circle mr-3" href="#!"><i class="fas fa-phone"></i></a>
-	        </div>
+        <div id="map"></div>
+        <!-- Saran-->
+        <section class="content-section bg-kuning" id="saran">
+            <div class="container">
+              <div class="row">
+                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center text-dark">                        
+                    <h2>Hubungi Kami:</h2>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xs-offset-3" id="form">
+                      <form id="contact-form" class="form" action="{% url 'kemiskinan_indonesia:contact_us' %}" method="POST" role="form">
+                      {% csrf_token %}
+                          <div class="form-group">
+                              <label class="form-label text-dark font-weight-bold h6" for="name">Nama: </label>
+                              <input type="text" class="form-control bg-dark text-white" id="name" name="name" placeholder="Nama lengkap" tabindex="1" required>
+                          </div>                            
+                          <div class="form-group"> 
+                              <label class="form-label text-dark font-weight-bold h6" for="email">Email</label>
+                              <input type="email" class="form-control bg-dark text-white" id="email" name="email" placeholder="email@mail.com" tabindex="2" required>
+                          </div>                                                       
+                          <div class="form-group">
+                              <label class="form-label text-dark font-weight-bold h6" for="message">Pesan</label>
+                              <textarea rows="5" cols="50" name="message" class="form-control bg-dark text-white" id="message" placeholder="Pesan..." tabindex="4" required></textarea>                                 
+                          </div>
+                          <div class="text-center">
+                              <button type="submit" class="btn-dark btn-start-order">Kirim Pesan</button>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+            </div>
 	    </section>
         <!-- Footer-->
-        <footer class="footer text-center">
+        <footer class="footer text-center bg-abu">
             <div class="container">
-                <ul class="list-inline mb-5">
-                    <li class="list-inline-item">
-                        <a class="social-link rounded-circle text-white mr-3" href="#!"><i class="icon-social-facebook"></i></a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="social-link rounded-circle text-white mr-3" href="#!"><i class="icon-social-twitter"></i></a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="social-link rounded-circle text-white" href="#!"><i class="icon-social-github"></i></a>
-                    </li>
-                </ul>
-                <p class="text-muted small mb-0">Copyright &copy; Your Website 2021</p>
+                <p class="text-white mb-0">Copyright &copy; kemiskinan-indonesia.herokuapp.com 2021</p>
             </div>
         </footer>
         <!-- Scroll to Top Button-->
@@ -237,5 +261,6 @@
         <script type="text/javascript" src="{% static 'kemiskinan-indonesia/js/indo-kemiskinan-2020.js' %}"></script>
     	<script type="text/javascript" src="{% static 'kemiskinan-indonesia/js/visualisasi-peta.js' %}"></script>
         <script type="text/javascript" src="{% static 'kemiskinan-indonesia/js/visualisasi-barchart.js' %}"></script>
+        <script type="text/javascript" src="{% static 'kemiskinan-indonesia/js/jssor.slider.min.js' %}"></script>
     </body>
 </html>
