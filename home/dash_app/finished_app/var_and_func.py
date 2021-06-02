@@ -10,6 +10,7 @@ description = {
         html.B('mengalami kenaikan di tahun 2020.'),
         html.Br(), 
         html.Br(),
+        'Provinsi-provinsi yang memiliki indeks keparahan kemiskinan tertinggi pada 2020 di masing-masing pulau, yaitu :',
         html.Table([
           html.Tr([html.Th('Provinsi'), html.Th('Pulau')]),
           html.Tr([html.Td('Sumatera Selatan'), html.Td('Sumatera')]),
@@ -67,6 +68,7 @@ description = {
         html.B('Provinsi Nusa Tenggara Barat.'),
         html.Br(), 
         html.Br(),
+        'Provinsi-provinsi berikut memiliki nilai indeks kedalaman kemiskinan tertinggi pada 2020 di tiap-tiap pulau :',
         html.Table([
           html.Tr([html.Th('Provinsi'), html.Th('Pulau')]),
           html.Tr([html.Td('Bengkulu'), html.Td('Sumatera')]),
