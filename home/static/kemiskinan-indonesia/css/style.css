@@ -1,0 +1,16 @@
+#line-chart-box {
+    display: grid;
+    grid-template:
+        [row1-start] "linechart description" 100vh [row1-end] 
+        / 70vw 30vw;
+}
+
+#line-chart-plot {
+    grid-area: linechart;
+    background-color: white;
+}
+
+#line-chart-desc {
+    grid-area: description;
+    background-color: white;
+}

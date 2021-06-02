@@ -14,21 +14,22 @@
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="{% static 'kemiskinan-indonesia/css/styles.css' %}" rel="stylesheet" />
-        <link href="{% static 'kemiskinan-indonesia/css/style-barchart.css' %}" rel="stylesheet">
         <link rel="icon" href="{% static 'kemiskinan-indonesia/assets//favicon.ico' %}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
         integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
         crossorigin="" />
+        <!-- Bootstrap and Chart.js -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com./ajax/libs/font-awesome/4.0.3/css/font-awe    some.css">
     	<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
         integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
         crossorigin=""></script>
-        <!-- Bootstrap and Chart.js -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
         <script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js'></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com./ajax/libs/font-awesome/4.0.3/css/font-awe    some.css">
         <script src='https://cdnjs.cloudflare.com./ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+        <link href="{% static 'kemiskinan-indonesia/css/style-barchart.css' %}" rel="stylesheet">
+        <link href="{% static 'kemiskinan-indonesia/css/styles.css' %}" rel="stylesheet" />
+        <link href="{% static 'kemiskinan-indonesia/css/style.css' %}" rel="stylesheet" />
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -111,15 +112,30 @@
         </section>
         <!-- visualisasi-->
         <section class="content-section bg-abu" id="visualisasi">
-            <div class="container text-white">
+            <div class="text-white">
                 <div class="content-section-heading text-center">
                     <h2 class="mb-5 visualization">Visualisasi</h2>
                 </div>
-                <div style="height:800px;">
-                	{% load plotly_dash %}
+                {% comment %} <div id = "line-chart-box" style="height:800px;"> {% endcomment %}
+                    {% comment %} <div id="line-chart-plot"> {% endcomment %}
+                {% load plotly_dash %}
 
-                    {% plotly_app name="LineChart" ratio=1 %}
-                </div>
+                {% plotly_app name="LineChart" ratio=1 %}
+                    {% comment %} </div> {% endcomment %}
+                    {% comment %} <div id="line-chart-desc"> {% endcomment %}
+                        {% comment %} <p>
+                            Provinsi dengan jumlah penduduk miskin terbanyak di tiap pulau yaitu :
+                            <ol>
+                                <li><b>Sumatera Utara</b> (Pulau Sumatera)</li>
+                                <li><b>Jawa Timur</b> (Pulau Jawa)</li>
+                                <li><b>Kalimantan Barat</b> (Pulau Kalimantan)</li>
+                                <li><b>Sulawesi Selatan</b> (Pulau Sulawesi)</li>
+                                <li><b>Papua</b> (Pulau Papua)</li>
+                            </ol>
+                            Di Pulau Jawa terlihat jelas jumlah penduduk miskin mengalami kenaikan di tahun 2020 setelah terus menerus turun hingga tahun 2019
+                        </p> {% endcomment %}
+                    {% comment %} </div> {% endcomment %}
+                {% comment %} </div> {% endcomment %}
             </div>
         </section>
                 <div class="row bg-abu">
@@ -215,7 +231,7 @@
             <div class="container">
               <div class="row">
                   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center text-dark">                        
-                    <h2>Hubungi Kami:</h2>
+                    <h2>Kritik dan Saran</h2>
                   </div>
               </div>
               <div class="row">

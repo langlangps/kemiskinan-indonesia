@@ -3,7 +3,7 @@ import dash_html_components as html
 import plotly.io as pio
 from dash.dependencies import Input, Output
 from django_plotly_dash import DjangoDash
-from .var_and_func import jumlah_penduduk_miskin, garis_kemiskinan, kedalaman_kemiskinan, keparahan_kemiskinan, presentase_penduduk_miskin, pulau_list, datasets, get_figure, create_figure
+from .var_and_func import jumlah_penduduk_miskin, garis_kemiskinan, kedalaman_kemiskinan, keparahan_kemiskinan, presentase_penduduk_miskin, pulau_list, datasets, get_figure, create_figure, description
 
 pio.templates.default = 'plotly_white'
 
@@ -11,8 +11,27 @@ app = DjangoDash('LineChart')
 
 app.layout = html.Div([
     html.H1(),
-    html.Div(
-        [dcc.Dropdown(
+    html.Div([
+        html.Div([
+            dcc.Slider(
+                id = 'year-slider',
+                min = 1,
+                max = 7,
+                marks = {
+                    1: {'label':'1 Tahun'},
+                    2: {'label':'2 Tahun'},
+                    3: {'label':'3 Tahun'},
+                    4: {'label':'4 Tahun'},
+                    5: {'label':'5 Tahun'},
+                    6: {'label':'6 Tahun'},
+                    7: {'label':'7 Tahun'},
+                },
+                value = 3,
+            ),
+        ], style = {'padding-top':'3vh'}),
+    ], style = {'grid-area':'slider',}),
+    html.Div([
+        dcc.Dropdown(
             id = 'dropdown-indicator',
             options=[
                 {'label': 'Keparahan Kemiskinan', 'value': 'keparahan_kemiskinan'},
@@ -23,41 +42,43 @@ app.layout = html.Div([
             ],
             searchable = False,
             value = 'kedalaman_kemiskinan'
-        )],
-        style = {'width':'48%', 'display':'inline-block'}
-    ),
-    html.Div(
-        [dcc.Dropdown(
+        ),
+        
+        dcc.Dropdown(
             id = 'choose-pulau',
             multi=True,
             options=[
                 {'label':value, 'value':key} for key, value in pulau_list.items()
             ],
             value = list(pulau_list.keys())
-        )],
-        style = {'width':'48%', 'display':'inline-block'}
+        ),
+    ], style = {
+        'grid-area':'control',
+    }),
+    html.Div(
+        id = "plot-description",
+        style = {'grid-area':'description'}
     ),
-    dcc.Slider(
-        id = 'year-slider',
-        min = 1,
-        max = 7,
-        marks = {
-            1: {'label':'1 Tahun'},
-            2: {'label':'2 Tahun'},
-            3: {'label':'3 Tahun'},
-            4: {'label':'4 Tahun'},
-            5: {'label':'5 Tahun'},
-            6: {'label':'6 Tahun'},
-            7: {'label':'7 Tahun'},
-        },
-        value = 3,
-    ),
-    dcc.Graph(id = 'line-chart-kemiskinan-indonesia'),
-])
+    html.Div([
+        dcc.Graph(id = 'line-chart-kemiskinan-indonesia'),
+    ], style = {
+        'grid-area': 'plot'
+    })
+], style = {
+    'display' : 'grid',
+    'grid-template' : '''
+        [row1-start] "slider slider" 10vh [row1-end]
+        [row2-start] "plot control" 16vh [row2-end] 
+        [row3-start] "plot description" 70vh [row3-end] 
+        / 65vw 30vw
+    ''',
+    'background-color':'white'
+})
 
 
 @app.callback(
     Output('line-chart-kemiskinan-indonesia', 'figure'),
+    Output('plot-description', 'children'),
     Input('dropdown-indicator', 'value'),
     Input('choose-pulau', 'value'),
     Input('year-slider', 'value')
@@ -66,13 +87,6 @@ app.layout = html.Div([
 def update_figure(indicator,choose_value,year_value):
     from_year = 2020-year_value
 
-    # fig = get_figure(
-    #     datasets[indicator]['data'],
-    #     datasets[indicator]['y'],
-    #     datasets[indicator]['title'],
-    #     from_year,
-    #     pulau = [pulau_list[key] for key in pulau_list if key in choose_value]
-    # )
     fig = create_figure(
         datasets[indicator]['data'],
         indicator,
@@ -84,4 +98,4 @@ def update_figure(indicator,choose_value,year_value):
     )
 
 
-    return fig
+    return fig, description[indicator]

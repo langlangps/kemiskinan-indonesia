@@ -1,6 +1,24 @@
 import pandas as pd
 import plotly.express as px
 
+description = {
+    'keparahan_kemiskinan' : '''
+        Provinsi dengan indeks keparahan tertinggi di tiap pulau cenderung mengalami kenaikan di tahun 2020. Provinsi Aceh di Pulau Sumatera Utara, Provinsi NTT di Pulau Jawa dan sekitarnya, Provinsi Sulawesi Tengah di Pulau Sulawesi merupakan provinsi dengan nilai indeks tertinggi di tiap pulau dan mengalami kenaikan indeks di tahun 2020. Sedangkan untuk provinsi dengan nilai tertinggi di tiap pulau yang mengalami penurunan nilai di tahun 2020 adalah Provinsi Kalimantan Utara di Pulau Kalimantan dan Provinsi Papua di Pulau Papua.
+    ''', 
+    'jumlah_penduduk_miskin': '''
+        Provinsi dengan jumlah penduduk miskin terbanyak di tiap pulau yaitu Provinsi Sumatera Utara di Pulau Sumatera, Provinsi Jawa Timur di Pulau Jawa dan sekitarnya, Provinsi Kalimantan Barat di Pulau Kalimantan, Provinsi Sulawesi Selatan di Pulau Sulawesi dan Provinsi Provinsi Papua dan Maluku di Pulau Papua. Secara keseluruhan terlihat jumlah penduduk miskin mengalami penurunan di tahun 2019 kemudian mengalami kenaikan di tahun 2020. Pulau Jawa dan Bali merupakan pulau dengan peningkatan jumlah penduduk miskin yang relatif tinggi.
+    ''',
+    'garis_kemiskinan' : '''
+        Garis kemiskinan di tiap provinsi di Indonesia mengalami kenaikan dari tahun 2018 hingga 2020. Provinsi dengan nilai garis kemiskinan tertinggi tiap pulau di tahun yang sama yaitu Provinsi Bangka Belitung di Pulau Sumatera, Provinsi DKI Jakarta di Pulau Jawa dan sekitarnya, Provinsi Kalimantan Utara di Pualu Kalimantan, Provinsi Sulawesi Tengah di Pulau Sulawesi, dan Provinsi Papua Barat d Pulau Papua.
+    ''',
+    'kedalaman_kemiskinan' : '''
+        Nilai indeks kedalaman kemiskinan tertinggi di Indonesia pada tahun 2020 berada di Pulau Papua tepatnya Provinsi Papua. Kemudian diikuti dengan nilai indeks kedalaman kemiskinan tertinggi tahun 2020 di tiap pulau yaitu Provinsi Nusa Tenggara Timur di Pulau Jawa dan sekitarnya, Provinsi Aceh di Pulau Sumatera Utara, Provinsi Gorontalo di Pulau Sulawesi, dan Provinsi Kalimantan Timur di Pulau Kalimantan.
+    ''',
+    'presentase_penduduk_miskin' : '''
+        Persentase penduduk miskin yang tinggi didominasi provinsi yang berada di Pulau Papua dengan Provinsi Papua dengan persentase penduduk miskin tertinggi di pulau tersebut. Pulau dengan persentase penduduk miskin yang cukup rendah didominasi di Pulau Kalimantan dan Pulau Sulawesi. Persentase penduduk miskin tertinggi di Pulau Kalimantan berada di Provinsi Kalimantan Barat dan di Pulau Sulawesi yaitu Provinsi Gorontalo. Pulau Sumatera dan Pulau Jawa mendominasi provinsi dengan persentase penduduk miskin yang berada di antara nilai tertinggi dan terendah. Persentase penduduk miskin tertinggi untuk tiap pulau berada di Provinsi Bengkulu untuk Pulau Sumatera dan Provinsi NTT untuk Pulau Jawa dan sekitarnya.
+    '''
+}
+
 # Nama-nama provinsi di masing-masing pulau
 sumatera = ('Sumatera Utara', 'Aceh', 'Lampung', 'Riau', 'Sumatera Selatan', 'Kepulauan Riau', 'Sumatera Barat', 'Jambi', 'Bengkulu', 'Kep. Bangka Belitung')
 jawa_bali_nusa = ('DKI Jakarta', 'DI Yogyakarta', 'Banten', 'Jawa Tengah', 'Nusa Tenggara Timur','Nusa Tenggara Barat', 'Jawa Barat', 'Jawa Timur', 'Bali')
@@ -208,7 +226,7 @@ def get_figure(data, y, title, from_year, pulau = []):
             facet_col_wrap = get_facet_col_wrap(pulau)
     )
 
-    fig.update_layout(height=900)
+    # fig.update_layout(height=900)
     fig.update_yaxes(matches=None)
     
     return fig
