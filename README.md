@@ -77,6 +77,14 @@ Untuk **keperluan *developing***, terdapat beberapa *requirement* agar mendukung
     openpyxl==3.0.7
 ```
 
+Untuk memulai run di local server, perhatikan `DEBUG` pada kemiskinan_indonesia/settings.py. Pastikan nilai `DEBUG = True`
+
+Selanjutnya, arahkan direktori terminal menuju `root directory`, kemudian jalankan command berikut (Windows) :
+
+```
+python manage.py runserver
+```
+
 ## Kontribusi 
 
 Kami sangat menerima request dari developer. Silakan *open an issue* untuk memulai diskusi terhadap perubahan mayor yang ingin diberikan. Kami sangat mengharapkan *pull request*
